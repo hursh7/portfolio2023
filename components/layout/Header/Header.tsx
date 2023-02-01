@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <GNB>
       <Wrapper ref={menuRef}>
-        <Logo onClick={onToggle}>Jun .</Logo>
+        <Logo>Jun .</Logo>
         <MenuConatainer toggleBtn={toggleBtn}>
           {Menus.map(menu => (
             <li key={menu.title}>{menu.title}</li>
@@ -66,6 +66,7 @@ export default function Header() {
 const GNB = styled.header`
   position: fixed;
   width: 100%;
+  max-width: 1920px;
   top: 0px;
   height: 80px;
   background: rgba(255, 255, 255, 0.7);
@@ -74,6 +75,7 @@ const GNB = styled.header`
 
 const Wrapper = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,7 +86,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Logo = styled.h1`
+const Logo = styled.div`
   user-select: none;
   font-size: 35px;
   font-weight: 400;
