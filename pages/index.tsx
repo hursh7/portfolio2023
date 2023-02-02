@@ -1,4 +1,5 @@
-import Main from '@/components/Home/Main';
+import About from '@/components/Home/About/About';
+import Main from '@/components/Home/Main/Main';
 import Nav from '@/components/layout/Nav/Nav';
 import Head from 'next/head';
 import styled from 'styled-components';
@@ -14,10 +15,9 @@ export default function Home() {
       </Head>
       <Nav />
       <Main />
+      <About />
     </Container>
   );
 }
 
-const Container = styled.div`
-  padding: 0 100px;
-`;
+const Container = styled.div``;

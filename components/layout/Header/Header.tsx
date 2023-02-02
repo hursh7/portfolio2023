@@ -1,5 +1,5 @@
 import Icons from '@/components/shared/Icons';
-import ICONSDATA_LIST from '@/core/Icondata';
+import { ICONSDATA_LIST } from '@/core/Icondata';
 import { media } from '@/styles/theme';
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
@@ -127,7 +127,7 @@ const MenuConatainer = styled.ul<{ toggleBtn: boolean }>`
     width: 100%;
     height: 100vh;
     top: 80px;
-    left: ${({ toggleBtn }) => (toggleBtn ? `0px` : `760px`)};
+    left: ${({ toggleBtn }) => (toggleBtn ? `0px` : `900px`)};
     transition: all 1s;
     margin-left: 100px;
     padding: 50px 0 0 50px;

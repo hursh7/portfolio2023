@@ -1,6 +1,6 @@
 import React from 'react';
 import Icons from '@/components/shared/Icons';
-import ICONSDATA_LIST from '@/core/Icondata';
+import { ICONSDATA_LIST } from '@/core/Icondata';
 import styled from 'styled-components';
 import { media } from '@/styles/theme';
 

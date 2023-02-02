@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Path from '@/core/Path';
-import { MainBg } from 'asset/images';
+import { MainBg } from 'assets/images';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 
@@ -18,7 +18,7 @@ export default function Main() {
           <Position>FrontEnd Developer</Position>
         </Title>
         <Introduce>
-          안녕하세요 2년차 퍼블리셔 및 주니어 프론트엔드 개발자 박준형입니다.{' '}
+          안녕하세요. 2년차 퍼블리셔 및 주니어 프론트엔드 개발자 박준형입니다.
           <br />
           웹접근성과 웹표준을 준수하여 퍼블리싱하고, <br />
           JavaScript(ES6+), TypeScript와 리액트를 통해 개발합니다.
@@ -41,6 +41,10 @@ const Container = styled.section`
     padding: calc(${Size.gap.MainSection} / 2) 0;
     flex-direction: column-reverse;
     text-align: center;
+  }
+
+  ${media.mobile} {
+    padding: calc(sectionTopBottom / 4) 0;
   }
 `;
 
@@ -74,7 +78,7 @@ const Position = styled.h1`
 
   ${media.mobile} {
     font-size: 30px;
-    letter-spacing: 3px;
+    letter-spacing: -3px;
     line-height: 30px;
     margin-bottom: 10px;
   }
