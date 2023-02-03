@@ -1,5 +1,6 @@
 import About from '@/components/Home/About/About';
 import Main from '@/components/Home/Main/Main';
+import Tech from '@/components/Home/Tech/Tech';
 import Nav from '@/components/layout/Nav/Nav';
 import Head from 'next/head';
 import styled from 'styled-components';
@@ -16,6 +17,7 @@ export default function Home() {
       <Nav />
       <Main />
       <About />
+      <Tech />
     </Container>
   );
 }

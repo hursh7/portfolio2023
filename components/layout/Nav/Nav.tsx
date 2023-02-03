@@ -1,13 +1,13 @@
 import React from 'react';
 import Icons from '@/components/shared/Icons';
-import { ICONSDATA_LIST } from '@/core/Icondata';
+import { ICON_LINK } from '@/core/Icondata';
 import styled from 'styled-components';
 import { media } from '@/styles/theme';
 
 export default function Nav() {
   return (
     <NavContainer>
-      {ICONSDATA_LIST.map(icon => {
+      {ICON_LINK.map(icon => {
         return (
           <Icons
             key={icon.title}

@@ -1,9 +1,9 @@
-import { ICON } from '@/core/Icondata';
+import { ICON_ABOUT } from '@/core/Icondata';
 
 const ABOUT_DATA = [
   {
     label: 'Career',
-    icon: ICON.about.career,
+    icon: ICON_ABOUT.about.career,
     data: [
       {
         title: '(주)키튼플래닛 PRD2팀',
@@ -24,7 +24,7 @@ const ABOUT_DATA = [
   },
   {
     label: 'Experience',
-    icon: ICON.about.experience,
+    icon: ICON_ABOUT.about.experience,
     data: [
       {
         title: '브러쉬 몬스터 서비스 홈페이지',

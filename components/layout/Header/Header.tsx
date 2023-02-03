@@ -1,5 +1,5 @@
 import Icons from '@/components/shared/Icons';
-import { ICONSDATA_LIST } from '@/core/Icondata';
+import { ICON_LINK } from '@/core/Icondata';
 import { media } from '@/styles/theme';
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
@@ -44,7 +44,7 @@ export default function Header() {
             <li key={menu.title}>{menu.title}</li>
           ))}
           <ExternalLink>
-            {ICONSDATA_LIST.map(icon => {
+            {ICON_LINK.map(icon => {
               return (
                 <Icons
                   key={icon.title}
