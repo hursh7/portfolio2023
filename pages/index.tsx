@@ -1,5 +1,6 @@
 import About from '@/components/Home/About/About';
 import Main from '@/components/Home/Main/Main';
+import Project from '@/components/Home/Project/Project';
 import Tech from '@/components/Home/Tech/Tech';
 import Nav from '@/components/layout/Nav/Nav';
 import Head from 'next/head';
@@ -18,6 +19,7 @@ export default function Home() {
       <Main />
       <About />
       <Tech />
+      <Project />
     </Container>
   );
 }
