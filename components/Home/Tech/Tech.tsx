@@ -11,7 +11,7 @@ export default function Tech() {
       <Wrapper>
         {ICON_TECH.map(tech => (
           <Item key={tech.title} color={tech.color}>
-            <div>{tech.icon_name}</div>
+            <div className={'icon'}>{tech.icon_name}</div>
             <Name>{tech.title}</Name>
           </Item>
         ))}
@@ -63,6 +63,11 @@ const Item = styled.div<{ color: string }>`
   border-radius: 5px;
   font-size: 90px;
   color: ${({ color }) => color};
+
+  &:hover .icon {
+    font-size: 100px;
+    transition: 0.1s all ease-in;
+  }
 `;
 
 const Name = styled.p`
