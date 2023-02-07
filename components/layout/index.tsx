@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Footer from '@/components/layout/Footer/Footer';
 import Header from '@/components/layout/Header/Header';
@@ -11,9 +11,9 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <Container>
-      <Header />
+      {/* <Header onReset={handleTop} ref={focusRef} /> */}
       <Main>{children}</Main>
-      <Footer />
+      {/* <Footer /> */}
     </Container>
   );
 }

@@ -1,14 +1,19 @@
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { AboutBg } from 'assets/images';
 import ABOUT_DATA from '@/core/AboutData';
 import DetailList from './DetailList';
 
-export default function About() {
+interface Props {
+  test?: any;
+}
+
+// eslint-disable-next-line react/display-name
+const About = forwardRef(({ test }: Props, ref: any) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <Index>About Me</Index>
       <Wrapper>
         <Profile>
@@ -39,7 +44,7 @@ export default function About() {
       </Wrapper>
     </Container>
   );
-}
+});
 
 const Container = styled.section`
   padding: ${Size.gap.MainSection} 0;
@@ -141,3 +146,5 @@ const StyledAboutBg = styled(AboutBg)`
     margin-bottom: 50px;
   }
 `;
+
+export default About;

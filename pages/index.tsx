@@ -2,12 +2,53 @@ import About from '@/components/Home/About/About';
 import Main from '@/components/Home/Main/Main';
 import Project from '@/components/Home/Project/Project';
 import Tech from '@/components/Home/Tech/Tech';
+import Footer from '@/components/layout/Footer/Footer';
+import Header from '@/components/layout/Header/Header';
 import Nav from '@/components/layout/Nav/Nav';
 import TopButton from '@/components/shared/TopButton';
 import Head from 'next/head';
+import { ReactNode, forwardRef, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
+// eslint-disable-next-line react/display-name
 export default function Home() {
+  const IndexRef = useRef<any>();
+  const focusRef = useRef<any>();
+
+  const handleTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    let nodes: any[] = [];
+
+    (async () => {
+      const IndexClickEvent = (node: any, i: number) => {
+        nodes.push(node);
+
+        node.addEventListener('click', () => {
+          focusRef.current &&
+            focusRef.current.children[i].scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+        });
+      };
+
+      if (IndexRef.current) {
+        [...IndexRef.current.children].map((node, i) =>
+          IndexClickEvent(node, i)
+        );
+      }
+      return nodes.map((node, i) =>
+        node.removeEventListener('click', IndexClickEvent(node, i))
+      );
+    })();
+  }, []);
+
   return (
     <Container>
       <Head>
@@ -17,10 +58,14 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Nav />
+      <Header ref={IndexRef} />
       <Main />
-      <About />
-      <Tech />
-      <Project />
+      <div ref={focusRef}>
+        <About />
+        <Tech />
+        <Project />
+        <Footer />
+      </div>
       <TopButton />
     </Container>
   );

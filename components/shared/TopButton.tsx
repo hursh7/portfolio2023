@@ -44,7 +44,6 @@ export default function TopButton() {
 
 const Button = styled.button`
   position: fixed;
-  /* opacity: 0; */
   bottom: 20px;
   right: 20px;
   color: ${props => props.theme.colors.LightGrey};

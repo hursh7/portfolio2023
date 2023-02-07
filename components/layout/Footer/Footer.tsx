@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
@@ -6,9 +6,14 @@ import { ICON_LINK } from '@/core/Icondata';
 import Icons from '@/components/shared/Icons';
 import ContactForm from '@/components/ContactForm/ContactForm';
 
-export default function Footer() {
+interface Props {
+  test?: any;
+}
+
+// eslint-disable-next-line react/display-name
+const Footer = forwardRef(({ test }: Props, ref: any) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <Index>Contact</Index>
       <ContactForm />
       <Text>
@@ -36,7 +41,7 @@ export default function Footer() {
       </Wrapper>
     </Container>
   );
-}
+});
 
 const Container = styled.footer`
   position: relative;
@@ -118,3 +123,5 @@ const Link = styled.div`
     font-size: 18px;
   }
 `;
+
+export default Footer;

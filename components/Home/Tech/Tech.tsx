@@ -1,12 +1,17 @@
 import { ICON_TECH } from '@/core/Icondata';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 
-export default function Tech() {
+interface Props {
+  test?: any;
+}
+
+// eslint-disable-next-line react/display-name
+const Tech = forwardRef(({ test }: Props, ref: any) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <Index>Skills & Tools</Index>
       <Wrapper>
         {ICON_TECH.map(tech => (
@@ -18,7 +23,7 @@ export default function Tech() {
       </Wrapper>
     </Container>
   );
-}
+});
 
 const Container = styled.section`
   padding: ${Size.gap.MainSection} 100px;
@@ -76,3 +81,5 @@ const Name = styled.p`
   margin-top: 15px;
   color: ${props => props.theme.colors.MainGrey};
 `;
+
+export default Tech;

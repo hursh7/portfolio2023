@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
 import PROJECT_DATA from '@/core/ProjectData';
 import ProjectCard from './ProjectCard';
 
-export default function Project() {
+interface Props {
+  test?: any;
+}
+
+// eslint-disable-next-line react/display-name
+const Project = forwardRef(({ test }: Props, ref: any) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <Index>Projects</Index>
       <CardContainer>
         {PROJECT_DATA.map(project => (
@@ -25,7 +30,7 @@ export default function Project() {
       </CardContainer>
     </Container>
   );
-}
+});
 
 const Container = styled.section`
   padding: ${Size.gap.MainSection} 100px;
@@ -56,3 +61,5 @@ const CardContainer = styled.section`
   display: flex;
   flex-direction: column;
 `;
+
+export default Project;
