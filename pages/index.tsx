@@ -3,6 +3,7 @@ import Main from '@/components/Home/Main/Main';
 import Project from '@/components/Home/Project/Project';
 import Tech from '@/components/Home/Tech/Tech';
 import Nav from '@/components/layout/Nav/Nav';
+import TopButton from '@/components/shared/TopButton';
 import Head from 'next/head';
 import styled from 'styled-components';
 
@@ -20,6 +21,7 @@ export default function Home() {
       <About />
       <Tech />
       <Project />
+      <TopButton />
     </Container>
   );
 }

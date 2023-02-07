@@ -6,6 +6,7 @@ import { TbChartArrowsVertical } from 'react-icons/tb';
 import { DiHtml5, DiCss3Full, DiGit } from 'react-icons/di';
 import { FiFigma } from 'react-icons/fi';
 import { TfiLink } from 'react-icons/tfi';
+import { FaArrowAltCircleUp } from 'react-icons/fa';
 import { VscGithubAlt, VscLink } from 'react-icons/vsc';
 import {
   SiJavascript,
@@ -16,6 +17,10 @@ import {
 } from 'react-icons/si';
 
 import Path from './Path';
+
+export const TOP_BUTTON = {
+  icon_name: <FaArrowAltCircleUp />,
+};
 
 export const ICON_LINK = [
   { title: 'Github', icon_name: <AiFillGithub />, link: Path.github },
