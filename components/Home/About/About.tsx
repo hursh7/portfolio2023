@@ -22,14 +22,16 @@ export default function About() {
                   {about.icon}
                   <span>{about.label}</span>
                 </Title>
-                {about.data.map(data => (
-                  <DetailList
-                    key={data.title}
-                    title={data.title}
-                    desc={data.desc}
-                    date={data.date}
-                  />
-                ))}
+                <DetailWrapper>
+                  {about.data.map(data => (
+                    <DetailList
+                      key={data.title}
+                      title={data.title}
+                      desc={data.desc}
+                      date={data.date}
+                    />
+                  ))}
+                </DetailWrapper>
               </Content>
             );
           })}
@@ -95,7 +97,7 @@ const History = styled.div`
 `;
 
 const Content = styled.div`
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 `;
 
 const Title = styled.h3`
@@ -121,6 +123,12 @@ const Title = styled.h3`
     font-size: 25px;
     margin-bottom: 20px;
   }
+`;
+
+const DetailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `;
 
 const StyledAboutBg = styled(AboutBg)`

@@ -23,7 +23,6 @@ const Detail = styled.ul`
   position: relative;
   ${Size.font.regular}
   padding-left: 50px;
-  margin-bottom: 40px;
 
   & li::before {
     display: block;
