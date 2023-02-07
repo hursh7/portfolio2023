@@ -19,7 +19,7 @@ export default function Project() {
             description={project.description}
             tech_list={project.tech_list}
             link={project.link}
-            page={project.page}
+            path={project.path}
           />
         ))}
       </CardContainer>

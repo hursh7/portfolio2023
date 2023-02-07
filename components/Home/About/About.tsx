@@ -24,7 +24,7 @@ export default function About() {
                 </Title>
                 {about.data.map(data => (
                   <DetailList
-                    key={about.label}
+                    key={data.title}
                     title={data.title}
                     desc={data.desc}
                     date={data.date}

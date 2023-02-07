@@ -1,9 +1,10 @@
 import Path from '@/core/Path';
 import { ICON_ABOUT } from '@/core/Icondata';
+import { ProjectImg01, ProjectImg02, ProjectImg03 } from '@/assets/images';
 
 const PROJECT_DATA = [
   {
-    image: 'test',
+    image: ProjectImg01,
     number: 1,
     title: 'cardMaker',
     description:
@@ -16,17 +17,17 @@ const PROJECT_DATA = [
       '#Cloudinary',
     ],
     link: Path.cardMaker,
-    page: Path.cardMakerPage,
+    path: Path.cardMakerPage,
   },
   {
-    image: 'test',
+    image: ProjectImg03,
     number: 3,
     title: 'Portfolio',
     description:
       'React로 개발한 개인 포트폴리오 사이트입니다. 정보를 최대한 간결하게 전달하고자, 원 페이지로 제작하였습니다. 2년간 퍼블리셔로 근무했던 경력과 개발자로 성장하고자 공부하고 진행한 프로젝트를 기재했습니다. 외부 링크를 통해 개인 github와 노션 페이지, 그리고 이력서를 확인하실 수 있습니다.',
     tech_list: ['#TypeScript', '#React', '#Next.js', '#Styled-components'],
-    link: Path.cardMaker,
-    page: Path.cardMakerPage,
+    link: Path.portfolio,
+    path: Path.portfolioPage,
   },
 ];
 

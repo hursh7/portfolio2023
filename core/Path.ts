@@ -4,6 +4,8 @@ const Path = {
   pdf: '/resume_Jun.pdf',
   cardMaker: 'https://github.com/hursh7/business-card-maker',
   cardMakerPage: 'https://hursh7.github.io/business-card-maker/',
+  portfolio: 'https://github.com/hursh7/portfolio2022',
+  portfolioPage: 'https://hursh7.github.io/portfolio2022/',
 };
 
 export default Path;

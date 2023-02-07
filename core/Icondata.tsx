@@ -2,16 +2,17 @@ import { AiFillGithub } from 'react-icons/ai';
 import { RxNotionLogo } from 'react-icons/rx';
 import { RiFileUserFill } from 'react-icons/ri';
 import { FaLaptopCode, FaReact } from 'react-icons/fa';
-import { TbBriefcase, TbChartArrowsVertical } from 'react-icons/tb';
+import { TbChartArrowsVertical } from 'react-icons/tb';
 import { DiHtml5, DiCss3Full, DiGit } from 'react-icons/di';
 import { FiFigma } from 'react-icons/fi';
+import { TfiLink } from 'react-icons/tfi';
+import { VscGithubAlt, VscLink } from 'react-icons/vsc';
 import {
   SiJavascript,
   SiTypescript,
   SiNextdotjs,
   SiPostman,
   SiFirebase,
-  SiAdobexd,
 } from 'react-icons/si';
 
 import Path from './Path';
@@ -39,5 +40,12 @@ export const ICON_ABOUT = {
   about: {
     career: <TbChartArrowsVertical />,
     experience: <FaLaptopCode />,
+  },
+};
+
+export const ICON_PJOJECT = {
+  project: {
+    github: <VscGithubAlt />,
+    path: <TfiLink />,
   },
 };

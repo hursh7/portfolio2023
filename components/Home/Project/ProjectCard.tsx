@@ -2,15 +2,17 @@ import React from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
+import Image from 'next/image';
+import { ICON_PJOJECT } from '@/core/Icondata';
 
 interface Props {
   image: any;
   number: number;
   title: string;
   description: string;
-  tech_list: any;
-  link: any;
-  page: any;
+  tech_list: string[];
+  link: string;
+  path: string;
 }
 
 export default function ProjectCard({
@@ -20,19 +22,34 @@ export default function ProjectCard({
   description,
   tech_list,
   link,
-  page,
+  path,
 }: Props) {
+  const handleClickLink = (target: string) => {
+    target === link ? window.open(link) : window.open(path);
+  };
+
   return (
     <Container>
-      <Canvas>{image}</Canvas>
+      <StyledImage src={image} alt={title} />
       <Text>
         <Number>{`0${number}`}</Number>
         <Title>{title}</Title>
         <Description>{description}</Description>
         <TechBox>
-          <Tec>{tech_list}</Tec>
+          {tech_list.map(list => (
+            <Tech key={list}>{list}</Tech>
+          ))}
         </TechBox>
-        <LinkBox></LinkBox>
+        <LinkBox>
+          <ExternalLink onClick={() => handleClickLink(link)}>
+            {ICON_PJOJECT.project.github}
+            <Path>Github</Path>
+          </ExternalLink>
+          <ExternalLink onClick={() => handleClickLink(path)}>
+            {ICON_PJOJECT.project.path}
+            <Path>Page</Path>
+          </ExternalLink>
+        </LinkBox>
       </Text>
     </Container>
   );
@@ -59,7 +76,7 @@ const Container = styled.section`
   }
 `;
 
-const Canvas = styled.div`
+const StyledImage = styled(Image)`
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -144,7 +161,7 @@ const TechBox = styled.div`
   }
 `;
 
-const Tec = styled.div`
+const Tech = styled.div`
   margin-right: 5px;
 `;
 
@@ -152,15 +169,18 @@ const LinkBox = styled.div`
   display: flex;
 `;
 
-const Link = styled.div`
+const ExternalLink = styled.div`
   display: flex;
   align-items: center;
-  background-color: MainGrey;
+  background-color: ${props => props.theme.colors.MainGrey};
   border-radius: 2px;
   padding: 10px 15px;
   margin: 20px 10px 0 0;
+  font-size: 20px;
+  color: #fff;
 
   &:hover {
+    cursor: pointer;
     opacity: 0.9;
   }
 
@@ -169,14 +189,9 @@ const Link = styled.div`
   }
 `;
 
-const Icon = styled.div`
-  width: 20px;
-  margin-right: 0.5rem;
-`;
-
 const Path = styled.p`
   position: relative;
-  font-size: FontSmall;
+  ${Size.font.small}
   font-weight: 300;
-  color: #fff;
+  margin-left: 6px;
 `;
