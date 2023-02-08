@@ -3,22 +3,44 @@ import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+import TechItem from './TechItem';
 
 interface Props {
-  test?: any;
+  useScrollFadeIn: (
+    direction: string,
+    duration: number,
+    delay: number
+  ) => object;
 }
 
 // eslint-disable-next-line react/display-name
-const Tech = forwardRef(({ test }: Props, ref: any) => {
+const Tech = forwardRef(({ useScrollFadeIn }: Props, ref: any) => {
+  const animatedItem = {
+    0: useScrollFadeIn('up', 1, 0.1),
+    1: useScrollFadeIn('up', 1, 0.2),
+    2: useScrollFadeIn('up', 1, 0.3),
+    3: useScrollFadeIn('up', 1, 0.4),
+    4: useScrollFadeIn('up', 1, 0.5),
+    5: useScrollFadeIn('down', 1, 0.1),
+    6: useScrollFadeIn('down', 1, 0.2),
+    7: useScrollFadeIn('down', 1, 0.3),
+    8: useScrollFadeIn('down', 1, 0.4),
+    9: useScrollFadeIn('down', 1, 0.5),
+  };
+
   return (
     <Container ref={ref}>
       <Index>Skills & Tools</Index>
       <Wrapper>
-        {ICON_TECH.map(tech => (
-          <Item key={tech.title} color={tech.color}>
-            <div className={'icon'}>{tech.icon_name}</div>
-            <Name>{tech.title}</Name>
-          </Item>
+        {ICON_TECH.map((tech, idx) => (
+          <TechItem
+            key={tech.title}
+            title={tech.title}
+            color={tech.color}
+            icon_name={tech.icon_name}
+            idx={idx}
+            animatedItem={animatedItem}
+          />
         ))}
       </Wrapper>
     </Container>

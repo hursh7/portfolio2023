@@ -6,16 +6,26 @@ import PROJECT_DATA from '@/core/ProjectData';
 import ProjectCard from './ProjectCard';
 
 interface Props {
-  test?: any;
+  useScrollFadeIn: (
+    direction: string,
+    duration: number,
+    delay: number
+  ) => object;
 }
 
 // eslint-disable-next-line react/display-name
-const Project = forwardRef(({ test }: Props, ref: any) => {
+const Project = forwardRef(({ useScrollFadeIn }: Props, ref: any) => {
+  const animatedItem = {
+    0: useScrollFadeIn('right', 1, 0),
+    1: useScrollFadeIn('left', 1, 0.1),
+    2: useScrollFadeIn('right', 1, 0.2),
+  };
+
   return (
     <Container ref={ref}>
       <Index>Projects</Index>
       <CardContainer>
-        {PROJECT_DATA.map(project => (
+        {PROJECT_DATA.map((project, idx) => (
           <ProjectCard
             key={project.title}
             image={project.image}
@@ -25,6 +35,8 @@ const Project = forwardRef(({ test }: Props, ref: any) => {
             tech_list={project.tech_list}
             link={project.link}
             path={project.path}
+            animatedItem={animatedItem}
+            idx={idx}
           />
         ))}
       </CardContainer>

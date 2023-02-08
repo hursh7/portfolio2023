@@ -13,6 +13,8 @@ interface Props {
   tech_list: string[];
   link: string;
   path: string;
+  idx: number;
+  animatedItem: any;
 }
 
 export default function ProjectCard({
@@ -23,13 +25,15 @@ export default function ProjectCard({
   tech_list,
   link,
   path,
+  idx,
+  animatedItem,
 }: Props) {
   const handleClickLink = (target: string) => {
     target === link ? window.open(link) : window.open(path);
   };
 
   return (
-    <Container>
+    <Container {...animatedItem[idx]}>
       <StyledImage src={image} alt={title} />
       <Text>
         <Number>{`0${number}`}</Number>

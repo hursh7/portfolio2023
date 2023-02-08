@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer/Footer';
 import Header from '@/components/layout/Header/Header';
 import Nav from '@/components/layout/Nav/Nav';
 import TopButton from '@/components/shared/TopButton';
+import { useScrollFadeIn } from '@/hook';
 import Head from 'next/head';
 import { ReactNode, forwardRef, useRef, useEffect } from 'react';
 import styled from 'styled-components';
@@ -58,13 +59,13 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Nav />
-      <Header ref={IndexRef} />
-      <Main />
+      <Header ref={IndexRef} onReset={handleTop} />
+      <Main useScrollFadeIn={useScrollFadeIn} />
       <div ref={focusRef}>
-        <About />
-        <Tech />
-        <Project />
-        <Footer />
+        <About useScrollFadeIn={useScrollFadeIn} />
+        <Tech useScrollFadeIn={useScrollFadeIn} />
+        <Project useScrollFadeIn={useScrollFadeIn} />
+        <Footer useScrollFadeIn={useScrollFadeIn} />
       </div>
       <TopButton />
     </Container>

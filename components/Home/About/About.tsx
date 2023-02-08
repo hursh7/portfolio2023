@@ -7,19 +7,28 @@ import ABOUT_DATA from '@/core/AboutData';
 import DetailList from './DetailList';
 
 interface Props {
-  test?: any;
+  useScrollFadeIn: (
+    direction: string,
+    duration: number,
+    delay: number
+  ) => object;
 }
 
 // eslint-disable-next-line react/display-name
-const About = forwardRef(({ test }: Props, ref: any) => {
+const About = forwardRef(({ useScrollFadeIn }: Props, ref: any) => {
+  const animatedItem = {
+    0: useScrollFadeIn('right', 1, 0),
+    1: useScrollFadeIn('left', 1, 0.1),
+  };
+
   return (
     <Container ref={ref}>
       <Index>About Me</Index>
       <Wrapper>
-        <Profile>
+        <Profile {...animatedItem[0]}>
           <StyledAboutBg />
         </Profile>
-        <History>
+        <History {...animatedItem[1]}>
           {ABOUT_DATA.map(about => {
             return (
               <Content key={about.label}>
@@ -98,6 +107,7 @@ const History = styled.div`
 
   ${media.mobile} {
     flex: 1 1 100%;
+    gap: 40px;
   }
 `;
 
@@ -143,7 +153,6 @@ const StyledAboutBg = styled(AboutBg)`
   ${media.mobile} {
     width: calc(450px / 1.5);
     height: calc(450px / 1.5);
-    margin-bottom: 50px;
   }
 `;
 

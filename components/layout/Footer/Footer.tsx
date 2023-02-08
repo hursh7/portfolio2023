@@ -7,15 +7,23 @@ import Icons from '@/components/shared/Icons';
 import ContactForm from '@/components/ContactForm/ContactForm';
 
 interface Props {
-  test?: any;
+  useScrollFadeIn: (
+    direction: string,
+    duration: number,
+    delay: number
+  ) => object;
 }
 
 // eslint-disable-next-line react/display-name
-const Footer = forwardRef(({ test }: Props, ref: any) => {
+const Footer = forwardRef(({ useScrollFadeIn }: Props, ref: any) => {
+  const animatedItem = {
+    0: useScrollFadeIn('down', 1, 0),
+  };
+
   return (
     <Container ref={ref}>
       <Index>Contact</Index>
-      <ContactForm />
+      <ContactForm animatedItem={animatedItem} />
       <Text>
         <li>
           본 사이트는 상업적 목적이 아닌 개인 포트폴리오 사이트로

@@ -3,8 +3,11 @@ import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
 import emailjs from '@emailjs/browser';
+interface Props {
+  animatedItem: any;
+}
 
-export default function ContactForm() {
+export default function ContactForm({ animatedItem }: Props) {
   const formRef = useRef(null);
 
   const [user, setUser] = useState({
@@ -53,7 +56,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Form ref={formRef} onSubmit={sendEmail}>
+    <Form ref={formRef} onSubmit={sendEmail} {...animatedItem[0]}>
       <Label htmlFor='name'>
         <Text>name</Text>
         <Input

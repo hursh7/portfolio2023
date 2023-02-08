@@ -5,14 +5,27 @@ import { MainBg } from 'assets/images';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 
-export default function Main() {
+interface Props {
+  useScrollFadeIn: (
+    direction: string,
+    duration: number,
+    delay: number
+  ) => object;
+}
+
+export default function Main({ useScrollFadeIn }: Props) {
+  const animatedItem = {
+    0: useScrollFadeIn('down', 1, 0),
+    1: useScrollFadeIn('down', 1, 0.1),
+  };
+
   const handleClickLink = () => {
     window.open(Path.pdf);
   };
 
   return (
     <Container>
-      <TextBox>
+      <TextBox {...animatedItem[0]}>
         <Title>
           <Name>Hi, i am Junhyung Park</Name>
           <Position>FrontEnd Developer</Position>
@@ -25,7 +38,9 @@ export default function Main() {
         </Introduce>
         <Button onClick={handleClickLink}>SEE MY RESUME</Button>
       </TextBox>
-      <StyledMainBg />
+      <div {...animatedItem[1]}>
+        <StyledMainBg />
+      </div>
     </Container>
   );
 }
