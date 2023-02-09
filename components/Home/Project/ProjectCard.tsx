@@ -35,7 +35,17 @@ export default function ProjectCard({
   return (
     <Container {...animatedItem[idx]}>
       <ImageWrapper>
-        <StyledImage src={image} alt={title} fill quality={100} />
+        <StyledImage
+          src={image}
+          alt={title}
+          fill
+          quality={100}
+          sizes={`
+        ${media.mobile} {
+          width: 100%;
+        }
+        `}
+        />
       </ImageWrapper>
       <Text>
         <Number>{`0${number}`}</Number>

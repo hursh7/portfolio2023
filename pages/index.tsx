@@ -83,36 +83,37 @@ export default function Home({ projects }: IProps) {
 }
 
 // 빌드 타임에 호출
-// export const getStaticProps: GetStaticProps = async () => {
-//   const options = {
-//     method: 'POST',
-//     headers: {
-//       'Notion-Version': '2022-02-22',
-//       Authorization: `Bearer ${TOKEN}`,
-//       'Content-Type': 'application/json',
-//       Accept: 'application/json',
-//     },
-//     body: JSON.stringify({
-//       sorts: [{ property: 'number', direction: 'ascending' }],
-//       page_size: 100,
-//     }),
-//   };
+export const getStaticProps: GetStaticProps = async () => {
+  const options = {
+    muteHttpExceptions: true,
+    method: 'POST',
+    headers: {
+      'Notion-Version': '2022-02-22',
+      Authorization: `Bearer ${TOKEN}`,
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      sorts: [{ property: 'number', direction: 'ascending' }],
+      page_size: 100,
+    }),
+  };
 
-//   const res = await fetch(
-//     `https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
-//     options
-//   );
+  const res = await fetch(
+    `https://api.notion.com/v1/databases/${DATABASE_ID}/query`,
+    options
+  );
 
-//   const project_list = await res.json();
+  const project_list = await res.json();
 
-//   const projects = project_list?.results.map(
-//     (project: { properties: any }) => project.properties
-//   );
+  const projects = project_list?.results.map(
+    (project: { properties: any }) => project.properties
+  );
 
-//   return {
-//     props: { projects },
-//     revalidate: 1,
-//   };
-// };
+  return {
+    props: { projects },
+    revalidate: 1,
+  };
+};
 
 const Container = styled.div``;

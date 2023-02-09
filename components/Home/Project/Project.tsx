@@ -30,7 +30,7 @@ const Project = forwardRef(
       <Container ref={ref}>
         <Index>Projects</Index>
         <CardContainer>
-          {/* {projects.map((project, idx) => (
+          {projects.map((project, idx) => (
             <ProjectCard
               key={idx}
               image={project.img.files[0]?.file.url}
@@ -43,8 +43,8 @@ const Project = forwardRef(
               idx={idx}
               animatedItem={animatedItem}
             />
-          ))} */}
-          {PROJECT_DATA.map((project, idx) => (
+          ))}
+          {/* {PROJECT_DATA.map((project, idx) => (
             <ProjectCard
               key={project.title}
               image={project.image}
@@ -57,7 +57,7 @@ const Project = forwardRef(
               animatedItem={animatedItem}
               idx={idx}
             />
-          ))}
+          ))} */}
         </CardContainer>
       </Container>
     );
