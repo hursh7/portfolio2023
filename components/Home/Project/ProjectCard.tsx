@@ -10,7 +10,7 @@ interface Props {
   number: number;
   title: string;
   description: string;
-  tech_list: string[];
+  tech_list: any[];
   link: string;
   path: string;
   idx: number;
@@ -34,14 +34,16 @@ export default function ProjectCard({
 
   return (
     <Container {...animatedItem[idx]}>
-      <StyledImage src={image} alt={title} />
+      <ImageWrapper>
+        <StyledImage src={image} alt={title} fill quality={100} />
+      </ImageWrapper>
       <Text>
         <Number>{`0${number}`}</Number>
         <Title>{title}</Title>
         <Description>{description}</Description>
         <TechBox>
           {tech_list.map(list => (
-            <Tech key={list}>{list}</Tech>
+            <Tech key={list.name}>{`#${list.name}`}</Tech>
           ))}
         </TechBox>
         <LinkBox>
@@ -80,7 +82,8 @@ const Container = styled.section`
   }
 `;
 
-const StyledImage = styled(Image)`
+const ImageWrapper = styled.div`
+  position: relative;
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -98,6 +101,10 @@ const StyledImage = styled(Image)`
   ${media.mobile} {
     flex: 1 1 50%;
   }
+`;
+
+const StyledImage = styled(Image)`
+  object-fit: cover;
 `;
 
 const Text = styled.div`

@@ -34,7 +34,7 @@ export default function Main({ useScrollFadeIn }: Props) {
           안녕하세요. 2년차 퍼블리셔 및 주니어 프론트엔드 개발자 박준형입니다.
           <br />
           웹접근성과 웹표준을 준수하여 퍼블리싱하고, <br />
-          JavaScript(ES6+), TypeScript와 리액트를 통해 개발합니다.
+          JavaScript(ES6+), TypeScript와 React를 통해 개발합니다.
         </Introduce>
         <Button onClick={handleClickLink}>SEE MY RESUME</Button>
       </TextBox>

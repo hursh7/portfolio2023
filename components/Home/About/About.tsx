@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { AboutBg } from 'assets/images';
 import ABOUT_DATA from '@/core/AboutData';
-import DetailList from './DetailList';
+import DetailList from '@/components/Home/About/DetailList';
 
 interface Props {
   useScrollFadeIn: (

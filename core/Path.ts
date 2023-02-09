@@ -6,6 +6,8 @@ const Path = {
   cardMakerPage: 'https://hursh7.github.io/business-card-maker/',
   portfolio: 'https://github.com/hursh7/portfolio2022',
   portfolioPage: 'https://hursh7.github.io/portfolio2022/',
+  youtube: 'https://github.com/hursh7/youtube-clone',
+  youtubePage: 'https://hursh7-juntube.netlify.app/',
 };
 
 export default Path;

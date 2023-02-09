@@ -1,9 +1,9 @@
+import TechItem from '@/components/Home/Tech/TechItem';
 import { ICON_TECH } from '@/core/Icondata';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import TechItem from './TechItem';
 
 interface Props {
   useScrollFadeIn: (
@@ -76,32 +76,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`;
-
-const Item = styled.div<{ color: string }>`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 20px 20px 0;
-  width: 200px;
-  height: 180px;
-  border: 1px solid #e4e4e4;
-  border-radius: 5px;
-  font-size: 90px;
-  color: ${({ color }) => color};
-
-  &:hover .icon {
-    font-size: 100px;
-    transition: 0.1s all ease-in;
-  }
-`;
-
-const Name = styled.p`
-  font-size: 13px;
-  font-weight: 500;
-  margin-top: 15px;
-  color: ${props => props.theme.colors.MainGrey};
+  max-width: 1440px;
+  margin: 0 auto;
 `;
 
 export default Tech;
