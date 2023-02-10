@@ -1,6 +1,6 @@
 # Portfolio 2023
 
-TypeScript와 Next.js로 개발한 개인 포트폴리오 사이트입니다. 약 2년 간 퍼블리셔 및 프론트엔드 개발자로 근무했던 경력과 개인적으로 성장하고자 공부하고 진행한 프로젝트를 기재했습니다. 외부 링크를 통해 개인 github와 노션 페이지, 그리고 이력서를 확인하실 수 있습니다.
+TypeScript와 Next.js로 개발한 개인 포트폴리오 사이트입니다. 약 2년 간 퍼블리셔 및 프론트엔드 개발자로 근무했던 경력과 개인적으로 성장하고자 공부하고 진행한 프로젝트를 기재했습니다. 외부 링크를 통해 개인 github와 노션 페이지, 그리고 이력서를 확인하실 수 있습니다. 기존에 React로 개발한 프로젝트를 다시 Next.js로 개발하며 동작원리와 SSR에 대해 학습하였으며, Notion API를 활용하여 Notion을 실시간 DB로 사용해서 데이터를 받아오는 작업을 경험 했습니다.
 
 페이지 링크: [**https://portfolio-jun-sigma.vercel.app/**](https://portfolio-jun-sigma.vercel.app/)
 
@@ -32,6 +32,7 @@ TypeScript와 Next.js로 개발한 개인 포트폴리오 사이트입니다. �
 
 - `Styled-Components` 설정과 `Next.js` 기능들을 사용하며 **서버사이드렌더링** 학습.
 - `useScrollFadein` **Custom Hooks** 활용하여 **Observer Intersection API** 를 통해 fade in 애니메이션 구현.
+- **Notion API**를 활용해 Notion을 실시간 DB로 사용. (Projects Section)
 - `Email JS` 를 통해 **Contact**의 메일 보내기 기능 구현.
 
 ### Reference

@@ -118,6 +118,8 @@ const StyledImage = styled(Image)`
 `;
 
 const Text = styled.div`
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   flex: 1 1 40%;
   padding: 0 50px;
@@ -129,6 +131,7 @@ const Text = styled.div`
   ${media.tablet} {
     flex: 1 1 45%;
     padding: 50px;
+    justify-content: center;
   }
 
   ${media.mobile} {
