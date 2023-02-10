@@ -16,12 +16,19 @@ import Tech from '@/components/Home/Tech/Tech';
 import Project from '@/components/Home/Project/Project';
 
 interface IProps {
-  projects: Array<Notion>;
+  projects: any;
 }
 
 export default function Home({ projects }: IProps) {
   const IndexRef = useRef<any>();
   const focusRef = useRef<any>();
+
+  const project_data = projects?.results.map(
+    (project: { properties: any }) => project?.properties
+  );
+
+  console.log('projects', projects);
+  console.log('project_data', project_data);
 
   const handleTop = () => {
     window.scrollTo({
@@ -73,7 +80,7 @@ export default function Home({ projects }: IProps) {
         <Tech useScrollFadeIn={useScrollFadeIn} />
         <Project
           useScrollFadeIn={useScrollFadeIn}
-          projects={projects}
+          projects={project_data}
         ></Project>
         <Footer useScrollFadeIn={useScrollFadeIn} />
       </div>
@@ -104,11 +111,11 @@ export const getStaticProps: GetStaticProps = async () => {
     options
   );
 
-  const project_list = await res.json();
+  const projects = await res.json();
 
-  const projects = project_list?.results.map(
-    (project: { properties: any }) => project.properties
-  );
+  // const projects = project_list?.results.map(
+  //   (project: { properties: any }) => project.properties
+  // );
 
   return {
     props: { projects },

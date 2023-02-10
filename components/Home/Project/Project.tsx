@@ -14,7 +14,7 @@ interface IProps {
     duration: number,
     delay: number
   ) => object;
-  projects: Array<Notion>;
+  projects: Notion;
 }
 
 // eslint-disable-next-line react/display-name
