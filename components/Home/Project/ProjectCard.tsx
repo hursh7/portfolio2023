@@ -53,7 +53,7 @@ export default function ProjectCard({
         <Description>{description}</Description>
         <TechBox>
           {tech_list.map(list => (
-            <Tech key={list.name}>{`#${list.name}`}</Tech>
+            <Tech key={list.name}>{`# ${list.name}`}</Tech>
           ))}
         </TechBox>
         <LinkBox>
@@ -178,7 +178,8 @@ const Description = styled.p`
 const TechBox = styled.div`
   display: flex;
   flex-wrap: wrap;
-  font-size: 15px;
+  gap: 5px;
+  font-size: 12px;
 
   ${media.mobile} {
     ${Size.font.small};
@@ -186,7 +187,10 @@ const TechBox = styled.div`
 `;
 
 const Tech = styled.div`
-  margin-right: 5px;
+  background-color: ${props => props.theme.colors.main};
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: white;
 `;
 
 const LinkBox = styled.div`
