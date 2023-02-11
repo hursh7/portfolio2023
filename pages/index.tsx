@@ -28,7 +28,7 @@ export default function Home({ projects }: IProps) {
   );
 
   console.log('projects', projects);
-  console.log('project_data', project_data);
+  // console.log('project_data', project_data);
 
   const handleTop = () => {
     window.scrollTo({
