@@ -2,11 +2,10 @@ import React, { forwardRef, ReactNode } from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
-import PROJECT_DATA from '@/core/ProjectData';
 import { DATABASE_ID, TOKEN } from '@/config';
 import ProjectCard from '@/components/Home/Project/ProjectCard';
-import { GetStaticProps } from 'next';
 import { Notion } from '@/types/notion';
+import PROJECT_DATA from '@/core/ProjectData';
 
 interface IProps {
   useScrollFadeIn: (
@@ -29,36 +28,45 @@ const Project = forwardRef(
     return (
       <Container ref={ref}>
         <Index>Projects</Index>
-        <CardContainer>
-          {projects.map((project, idx) => (
-            <ProjectCard
-              key={idx}
-              image={project.img.files[0]?.file.url}
-              number={project.number.number}
-              title={project.title.rich_text[0]?.plain_text}
-              description={project.description.rich_text[0]?.plain_text}
-              tech_list={project.tag.multi_select}
-              link={project.github.url}
-              path={project.page.url}
-              idx={idx}
-              animatedItem={animatedItem}
-            />
-          ))}
-          {/* {PROJECT_DATA.map((project, idx) => (
-            <ProjectCard
-              key={project.title}
-              image={project.image}
-              number={project.number}
-              title={project.title}
-              description={project.description}
-              tech_list={project.tech_list}
-              link={project.link}
-              path={project.path}
-              animatedItem={animatedItem}
-              idx={idx}
-            />
-          ))} */}
-        </CardContainer>
+        {projects ? (
+          <CardContainer>
+            {projects.map((project, idx) => {
+              return (
+                <ProjectCard
+                  key={idx}
+                  image={project.img.files[0]?.file.url}
+                  number={project.number.number}
+                  title={project.title.rich_text[0]?.plain_text}
+                  description={project.description.rich_text[0]?.plain_text}
+                  tech_list={project.tag.multi_select}
+                  link={project.github.url}
+                  path={project.page.url}
+                  idx={idx}
+                  animatedItem={animatedItem}
+                />
+              );
+            })}
+          </CardContainer>
+        ) : (
+          <CardContainer>
+            {PROJECT_DATA.map((project, idx) => {
+              return (
+                <ProjectCard
+                  key={project.title}
+                  image={project.image}
+                  number={project.number}
+                  title={project.title}
+                  description={project.description}
+                  tech_list={project.tech_list}
+                  link={project.link}
+                  path={project.path}
+                  animatedItem={animatedItem}
+                  idx={idx}
+                />
+              );
+            })}
+          </CardContainer>
+        )}
       </Container>
     );
   }

@@ -5,7 +5,7 @@ import TopButton from '@/components/shared/TopButton';
 import { DATABASE_ID, TOKEN } from '@/config';
 import { useScrollFadeIn } from '@/hook';
 import Head from 'next/head';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState, SetStateAction } from 'react';
 import styled from 'styled-components';
 
 import { GetStaticProps } from 'next';
@@ -23,12 +23,9 @@ export default function Home({ projects }: IProps) {
   const IndexRef = useRef<any>();
   const focusRef = useRef<any>();
 
-  const project_data = projects?.results.map(
+  let project_data = projects?.results.map(
     (project: { properties: any }) => project?.properties
   );
-
-  console.log('projects', projects);
-  // console.log('project_data', project_data);
 
   const handleTop = () => {
     window.scrollTo({
@@ -112,10 +109,6 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const projects = await res.json();
-
-  // const projects = project_list?.results.map(
-  //   (project: { properties: any }) => project.properties
-  // );
 
   return {
     props: { projects },
