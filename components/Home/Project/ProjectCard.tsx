@@ -2,11 +2,11 @@ import React from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { ICON_PJOJECT } from '@/core/Icondata';
 
 interface Props {
-  image: any;
+  image: StaticImageData;
   number: number;
   title: string;
   description: string;

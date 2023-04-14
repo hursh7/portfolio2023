@@ -9,23 +9,19 @@ import { useRef, useEffect, useState, SetStateAction } from 'react';
 import styled from 'styled-components';
 
 import { GetStaticProps } from 'next';
-import { Notion } from '@/types/notion';
 import Main from '@/components/Home/Main/Main';
 import About from '@/components/Home/About/About';
 import Tech from '@/components/Home/Tech/Tech';
 import Project from '@/components/Home/Project/Project';
+import { Notion } from '@/types/notion';
 
 interface IProps {
-  projects: any;
+  project_data: Notion;
 }
 
-export default function Home({ projects }: IProps) {
-  const IndexRef = useRef<any>();
-  const focusRef = useRef<any>();
-
-  let project_data = projects?.results.map(
-    (project: { properties: any }) => project?.properties
-  );
+export default function Home({ project_data }: IProps) {
+  const IndexRef = useRef<HTMLDivElement>(null);
+  const focusRef = useRef<HTMLDivElement>(null);
 
   const handleTop = () => {
     window.scrollTo({
@@ -109,9 +105,12 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const projects = await res.json();
+  const project_data = projects?.results.map(
+    (project: { properties: object }) => project?.properties
+  );
 
   return {
-    props: { projects },
+    props: { project_data },
     revalidate: 1,
   };
 };
