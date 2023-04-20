@@ -7,6 +7,7 @@ import { DiHtml5, DiCss3Full, DiGit } from 'react-icons/di';
 import { FiFigma } from 'react-icons/fi';
 import { TfiLink } from 'react-icons/tfi';
 import { FaArrowAltCircleUp } from 'react-icons/fa';
+import { GiWireCoil } from 'react-icons/gi';
 import { VscGithubAlt, VscLink } from 'react-icons/vsc';
 import {
   SiJavascript,
@@ -14,6 +15,7 @@ import {
   SiNextdotjs,
   SiPostman,
   SiFirebase,
+  SiReacttable,
 } from 'react-icons/si';
 
 import Path from './Path';
@@ -34,6 +36,11 @@ export const ICON_TECH = [
   { title: 'JavaScript', icon_name: <SiJavascript />, color: '#FFDF00' },
   { title: 'TypeScript', icon_name: <SiTypescript />, color: '#3178C6' },
   { title: 'React', icon_name: <FaReact />, color: '#61DAFB' },
+  {
+    title: 'React-Query + Recoil',
+    icon_name: <SiReacttable />,
+    color: '#FF4154',
+  },
   { title: 'Next.js', icon_name: <SiNextdotjs />, color: '#444444' },
   { title: 'Postman', icon_name: <SiPostman />, color: '#FF6C37' },
   { title: 'Firebase', icon_name: <SiFirebase />, color: '#FFCA28' },

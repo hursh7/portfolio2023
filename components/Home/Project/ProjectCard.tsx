@@ -5,12 +5,17 @@ import styled from 'styled-components';
 import Image, { StaticImageData } from 'next/image';
 import { ICON_PJOJECT } from '@/core/Icondata';
 
+type TechList = {
+  id?: string;
+  name: string;
+  color?: string;
+};
 interface Props {
   image: StaticImageData;
   number: number;
   title: string;
   description: string;
-  tech_list: any[];
+  tech_list: TechList[];
   link: string;
   path: string;
   idx: number;
