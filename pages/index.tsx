@@ -20,7 +20,7 @@ interface IProps {
 }
 
 export default function Home({ project_data }: IProps) {
-  const IndexRef = useRef<HTMLDivElement>(null);
+  const IndexRef = useRef<HTMLUListElement>(null);
   const focusRef = useRef<HTMLDivElement>(null);
 
   const handleTop = () => {
@@ -31,12 +31,11 @@ export default function Home({ project_data }: IProps) {
   };
 
   useEffect(() => {
-    let nodes: any[] = [];
+    let nodes: Node[] | any[] = [];
 
     (async () => {
-      const IndexClickEvent = (node: any, i: number) => {
+      const IndexClickEvent = (node: Node, i: number) => {
         nodes.push(node);
-
         node.addEventListener('click', () => {
           focusRef.current &&
             focusRef.current.children[i].scrollIntoView({

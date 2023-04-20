@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode } from 'react';
+import React, { ForwardedRef, forwardRef, ReactNode } from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
@@ -18,7 +18,10 @@ interface IProps {
 
 // eslint-disable-next-line react/display-name
 const Project = forwardRef(
-  ({ useScrollFadeIn, projects }: IProps, ref: any) => {
+  (
+    { useScrollFadeIn, projects }: IProps,
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
     const animatedItem = {
       0: useScrollFadeIn('right', 1, 0),
       1: useScrollFadeIn('left', 1, 0.1),

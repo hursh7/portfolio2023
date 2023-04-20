@@ -1,7 +1,7 @@
 import { useRef, useEffect, useCallback } from 'react';
 
 const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
-  const element = useRef<any>();
+  const element = useRef<any>(null);
 
   const handleDirection = (name: string) => {
     switch (name) {
@@ -21,7 +21,6 @@ const useScrollFadeIn = (direction = 'up', duration = 1, delay = 0) => {
   const handleScroll: IntersectionObserverCallback = useCallback(
     ([entry]) => {
       const { current } = element;
-
       if (entry.isIntersecting) {
         // callback function에서 전달 받은 entry 배열을 확인하면서, isIntersecting으로 노출 여부를 확인한다. (boolean)
         current.style.transitionProperty = 'all';

@@ -1,6 +1,6 @@
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
-import React, { forwardRef } from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
 import styled from 'styled-components';
 import { AboutBg } from 'assets/images';
 import ABOUT_DATA from '@/core/AboutData';
@@ -15,45 +15,47 @@ interface Props {
 }
 
 // eslint-disable-next-line react/display-name
-const About = forwardRef(({ useScrollFadeIn }: Props, ref: any) => {
-  const animatedItem = {
-    0: useScrollFadeIn('right', 1, 0),
-    1: useScrollFadeIn('left', 1, 0.1),
-  };
+const About = forwardRef(
+  ({ useScrollFadeIn }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+    const animatedItem = {
+      0: useScrollFadeIn('right', 1, 0),
+      1: useScrollFadeIn('left', 1, 0.1),
+    };
 
-  return (
-    <Container ref={ref}>
-      <Index>About Me</Index>
-      <Wrapper>
-        <Profile {...animatedItem[0]}>
-          <StyledAboutBg />
-        </Profile>
-        <History {...animatedItem[1]}>
-          {ABOUT_DATA.map(about => {
-            return (
-              <Content key={about.label}>
-                <Title>
-                  {about.icon}
-                  <span>{about.label}</span>
-                </Title>
-                <DetailWrapper>
-                  {about.data.map(data => (
-                    <DetailList
-                      key={data.title}
-                      title={data.title}
-                      desc={data.desc}
-                      date={data.date}
-                    />
-                  ))}
-                </DetailWrapper>
-              </Content>
-            );
-          })}
-        </History>
-      </Wrapper>
-    </Container>
-  );
-});
+    return (
+      <Container ref={ref}>
+        <Index>About Me</Index>
+        <Wrapper>
+          <Profile {...animatedItem[0]}>
+            <StyledAboutBg />
+          </Profile>
+          <History {...animatedItem[1]}>
+            {ABOUT_DATA.map(about => {
+              return (
+                <Content key={about.label}>
+                  <Title>
+                    {about.icon}
+                    <span>{about.label}</span>
+                  </Title>
+                  <DetailWrapper>
+                    {about.data.map(data => (
+                      <DetailList
+                        key={data.title}
+                        title={data.title}
+                        desc={data.desc}
+                        date={data.date}
+                      />
+                    ))}
+                  </DetailWrapper>
+                </Content>
+              );
+            })}
+          </History>
+        </Wrapper>
+      </Container>
+    );
+  }
+);
 
 const Container = styled.section`
   padding: ${Size.gap.MainSection} 0;

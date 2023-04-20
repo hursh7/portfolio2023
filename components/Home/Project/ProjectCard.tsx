@@ -40,7 +40,7 @@ export default function ProjectCard({
   return (
     <Container {...animatedItem[idx]}>
       <ImageWrapper>
-        <StyledImage src={image} alt={title} fill />
+        <StyledImage src={image} alt={title} fill quality={100} />
       </ImageWrapper>
       <Text>
         <Number>{`0${number}`}</Number>
@@ -89,7 +89,6 @@ const Container = styled.section`
 
 const ImageWrapper = styled.div`
   position: relative;
-  object-fit: cover;
   width: 100%;
   height: 100%;
   overflow: hidden;

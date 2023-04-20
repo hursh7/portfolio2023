@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
@@ -15,41 +15,45 @@ interface Props {
 }
 
 // eslint-disable-next-line react/display-name
-const Footer = forwardRef(({ useScrollFadeIn }: Props, ref: any) => {
-  const animatedItem = {
-    0: useScrollFadeIn('down', 1, 0),
-  };
+const Footer = forwardRef(
+  ({ useScrollFadeIn }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+    const animatedItem = {
+      0: useScrollFadeIn('down', 1, 0),
+    };
 
-  return (
-    <Container ref={ref}>
-      <Index>Contact</Index>
-      <ContactForm animatedItem={animatedItem} />
-      <Text>
-        <li>
-          본 사이트는 상업적 목적이 아닌 개인 포트폴리오 사이트로
-          제작되었습니다.
-        </li>
-        <li>사용된 일부 이미지 및 폰트 등은 별도의 출처가 있음을 밝힙니다.</li>
-      </Text>
-      <Wrapper>
-        <Copyright>&copy; 2023 Junhyung Park. All rights reserved.</Copyright>
-        <Link>
-          {ICON_LINK.map(icon => {
-            return (
-              <Icons
-                key={icon.title}
-                icon={icon.icon_name}
-                title={icon.title}
-                link={icon.link}
-                isFooter={true}
-              />
-            );
-          })}
-        </Link>
-      </Wrapper>
-    </Container>
-  );
-});
+    return (
+      <Container ref={ref}>
+        <Index>Contact</Index>
+        <ContactForm animatedItem={animatedItem} />
+        <Text>
+          <li>
+            본 사이트는 상업적 목적이 아닌 개인 포트폴리오 사이트로
+            제작되었습니다.
+          </li>
+          <li>
+            사용된 일부 이미지 및 폰트 등은 별도의 출처가 있음을 밝힙니다.
+          </li>
+        </Text>
+        <Wrapper>
+          <Copyright>&copy; 2023 Junhyung Park. All rights reserved.</Copyright>
+          <Link>
+            {ICON_LINK.map(icon => {
+              return (
+                <Icons
+                  key={icon.title}
+                  icon={icon.icon_name}
+                  title={icon.title}
+                  link={icon.link}
+                  isFooter={true}
+                />
+              );
+            })}
+          </Link>
+        </Wrapper>
+      </Container>
+    );
+  }
+);
 
 const Container = styled.footer`
   position: relative;
