@@ -38,7 +38,7 @@ export default function ProjectCard({
     target === link ? window.open(link) : window.open(path);
   };
 
-  const imageUrl = image ? image : `/images/${imageName}`;
+  const imageUrl = `/images/${imageName}`;
 
   return (
     <Container {...animatedItem[idx]}>

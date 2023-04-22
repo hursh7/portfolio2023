@@ -33,7 +33,7 @@ interface ConvertProjectData {
   number: number;
   title: string;
   description: string;
-  tech_list: any;
+  tech_list: TechList[] | any;
   link: string;
   path: string;
 }
