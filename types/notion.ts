@@ -1,4 +1,14 @@
 export interface Notion {
+  push(arg0: {
+    image: any;
+    number: any;
+    title: any;
+    description: any;
+    tech_list: any;
+    link: any;
+    path: any;
+  }): unknown;
+  forEach(arg0: (projects: any) => void): unknown;
   map(
     arg0: (project: any, idx: number) => JSX.Element
   ): import('react').ReactNode;

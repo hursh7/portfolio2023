@@ -1,11 +1,17 @@
-import React, { ForwardedRef, forwardRef, ReactNode } from 'react';
+import React, {
+  ForwardedRef,
+  forwardRef,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
 import { DATABASE_ID, TOKEN } from '@/config';
 import ProjectCard from '@/components/Home/Project/ProjectCard';
 import { Notion } from '@/types/notion';
-import PROJECT_DATA from '@/core/ProjectData';
+import { StaticImageData } from 'next/image';
 
 interface IProps {
   useScrollFadeIn: (
@@ -14,6 +20,22 @@ interface IProps {
     delay: number
   ) => object;
   projects: Notion;
+}
+
+type TechList = {
+  id?: string;
+  name: string;
+  color?: string;
+};
+interface ConvertProjectData {
+  image: string;
+  imageName?: string;
+  number: number;
+  title: string;
+  description: string;
+  tech_list: any;
+  link: string;
+  path: string;
 }
 
 // eslint-disable-next-line react/display-name
@@ -28,43 +50,40 @@ const Project = forwardRef(
       2: useScrollFadeIn('right', 1, 0.2),
     };
 
+    let convertProject: ConvertProjectData[] = [];
+
+    projects.results.map(project => {
+      convertProject.push({
+        image: project.properties.img.files[0]?.file.url,
+        imageName: project.properties.img.files[0].name,
+        number: project.properties.number.number,
+        title: project.properties.title.rich_text[0]?.plain_text,
+        description: project.properties.description.rich_text[0]?.plain_text,
+        tech_list: project.properties.tag.multi_select,
+        link: project.properties.github.url,
+        path: project.properties.page.url,
+      });
+    });
+
     return (
       <Container ref={ref}>
         <Index>Projects</Index>
-        {projects ? (
+        {convertProject.length > 0 && (
           <CardContainer>
-            {projects.map((project, idx) => {
-              return (
-                <ProjectCard
-                  key={idx}
-                  image={project.img.files[0]?.file.url}
-                  number={project.number.number}
-                  title={project.title.rich_text[0]?.plain_text}
-                  description={project.description.rich_text[0]?.plain_text}
-                  tech_list={project.tag.multi_select}
-                  link={project.github.url}
-                  path={project.page.url}
-                  idx={idx}
-                  animatedItem={animatedItem}
-                />
-              );
-            })}
-          </CardContainer>
-        ) : (
-          <CardContainer>
-            {PROJECT_DATA.map((project, idx) => {
+            {convertProject.map((project, idx) => {
               return (
                 <ProjectCard
                   key={project.title}
                   image={project.image}
+                  imageName={project.imageName}
                   number={project.number}
                   title={project.title}
                   description={project.description}
                   tech_list={project.tech_list}
                   link={project.link}
                   path={project.path}
-                  animatedItem={animatedItem}
                   idx={idx}
+                  animatedItem={animatedItem}
                 />
               );
             })}

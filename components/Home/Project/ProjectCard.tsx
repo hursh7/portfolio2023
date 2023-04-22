@@ -4,14 +4,14 @@ import { media } from '@/styles/theme';
 import styled from 'styled-components';
 import Image, { StaticImageData } from 'next/image';
 import { ICON_PJOJECT } from '@/core/Icondata';
-
 type TechList = {
   id?: string;
   name: string;
   color?: string;
 };
 interface Props {
-  image: StaticImageData;
+  image: string;
+  imageName?: string;
   number: number;
   title: string;
   description: string;
@@ -24,6 +24,7 @@ interface Props {
 
 export default function ProjectCard({
   image,
+  imageName,
   number,
   title,
   description,
@@ -37,10 +38,12 @@ export default function ProjectCard({
     target === link ? window.open(link) : window.open(path);
   };
 
+  const imageUrl = image ? image : `/images/${imageName}`;
+
   return (
     <Container {...animatedItem[idx]}>
       <ImageWrapper>
-        <StyledImage src={image} alt={title} fill quality={100} />
+        <StyledImage src={imageUrl} alt={title} fill quality={100} />
       </ImageWrapper>
       <Text>
         <Number>{`0${number}`}</Number>

@@ -1,6 +1,11 @@
 import Path from '@/core/Path';
 import { ICON_ABOUT } from '@/core/Icondata';
-import { ProjectImg01, ProjectImg02, ProjectImg03 } from '@/assets/images';
+import {
+  ProjectImg01,
+  ProjectImg02,
+  ProjectImg03,
+  ProjectImg04,
+} from '@/assets/images';
 
 const PROJECT_DATA = [
   {
@@ -47,6 +52,13 @@ const PROJECT_DATA = [
     link: Path.youtube,
     path: Path.youtubePage,
   },
+];
+
+const PROJECT_DATA_IMAGE = [
+  ProjectImg01,
+  ProjectImg02,
+  ProjectImg03,
+  ProjectImg04,
 ];
 
 export default PROJECT_DATA;
