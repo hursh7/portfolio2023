@@ -1,15 +1,8 @@
 import Path from '@/core/Path';
 import { ICON_ABOUT } from '@/core/Icondata';
-import {
-  ProjectImg01,
-  ProjectImg02,
-  ProjectImg03,
-  ProjectImg04,
-} from '@/assets/images';
 
 const PROJECT_DATA = [
   {
-    image: ProjectImg03,
     number: 1,
     title: 'Portfolio 2023',
     description:
@@ -24,7 +17,6 @@ const PROJECT_DATA = [
     path: Path.portfolioPage,
   },
   {
-    image: ProjectImg01,
     number: 2,
     title: 'cardMaker',
     description:
@@ -39,7 +31,6 @@ const PROJECT_DATA = [
     path: Path.cardMakerPage,
   },
   {
-    image: ProjectImg02,
     number: 3,
     title: 'Yuntube(CloneCoding)',
     description:
@@ -52,13 +43,6 @@ const PROJECT_DATA = [
     link: Path.youtube,
     path: Path.youtubePage,
   },
-];
-
-const PROJECT_DATA_IMAGE = [
-  ProjectImg01,
-  ProjectImg02,
-  ProjectImg03,
-  ProjectImg04,
 ];
 
 export default PROJECT_DATA;
