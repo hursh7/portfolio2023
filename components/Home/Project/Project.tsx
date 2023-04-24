@@ -1,17 +1,9 @@
-import React, {
-  ForwardedRef,
-  forwardRef,
-  ReactNode,
-  useEffect,
-  useState,
-} from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
-import { DATABASE_ID, TOKEN } from '@/config';
 import ProjectCard from '@/components/Home/Project/ProjectCard';
 import { Notion } from '@/types/notion';
-import { StaticImageData } from 'next/image';
 
 interface IProps {
   useScrollFadeIn: (

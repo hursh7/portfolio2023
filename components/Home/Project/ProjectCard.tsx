@@ -2,8 +2,9 @@ import React from 'react';
 import Size from '@/core/Size';
 import { media } from '@/styles/theme';
 import styled from 'styled-components';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { ICON_PJOJECT } from '@/core/Icondata';
+
 type TechList = {
   id?: string;
   name: string;

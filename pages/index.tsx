@@ -5,7 +5,7 @@ import TopButton from '@/components/shared/TopButton';
 import { DATABASE_ID, TOKEN } from '@/config';
 import { useScrollFadeIn } from '@/hook';
 import Head from 'next/head';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { GetStaticProps } from 'next';
@@ -14,7 +14,6 @@ import About from '@/components/Home/About/About';
 import Tech from '@/components/Home/Tech/Tech';
 import Project from '@/components/Home/Project/Project';
 import { Notion } from '@/types/notion';
-import { StaticImageData } from 'next/image';
 
 interface IProps {
   project_data: Notion;

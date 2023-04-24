@@ -1,5 +1,4 @@
 import Path from '@/core/Path';
-import { ICON_ABOUT } from '@/core/Icondata';
 
 const PROJECT_DATA = [
   {
